@@ -6,8 +6,8 @@ import time
 class MiniParkingSystem:
     def __init__(self, max_retries=3, retry_delay=2):
         self.connection_params = {
-            'host': 'mysql.railway.internal',
-            'port': 3306,
+            'host': 'nozomi.proxy.rlwy.net',
+            'port': 40881,
             'user': 'root',
             'password': 'MmURHRpxRMQkrEqmeqKLJIVbWxPHUrjU',
             'database': 'railway'
