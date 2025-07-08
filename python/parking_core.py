@@ -6,11 +6,11 @@ import time
 class MiniParkingSystem:
     def __init__(self, max_retries=3, retry_delay=2):
         self.connection_params = {
-            'host': 'containers-us-west-xyz.railway.app',
-            'user': 'railway',
-            'password': '********',
-            'database': 'railway',
-            'port': 3306
+            'host': 'mysql.railway.internal',
+            'port': 3306,
+            'user': 'root',
+            'password': 'MmURHRpxRMQkrEqmeqKLJIVbWxPHUrjU',
+            'database': 'railway'
         }
         self.max_retries = max_retries
         self.retry_delay = retry_delay
