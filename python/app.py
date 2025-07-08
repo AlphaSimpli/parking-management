@@ -176,7 +176,7 @@
 
 from flask import Flask, request, render_template, redirect, url_for, jsonify
 import os
-from parking_core import MiniParkingSystem
+from python.parking_core import MiniParkingSystem
 
 # Définir le bon dossier des templates (frontend)
 template_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'frontend'))
