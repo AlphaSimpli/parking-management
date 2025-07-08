@@ -1,0 +1,6 @@
+<h2>Available place :</h2>
+<ul>
+    {% for slot in slots %}
+        <li>{{ slot.slot_number }} - {{ "free" if not slot.is_occupied else "Occupé" }}</li>
+    {% endfor %}
+</ul>

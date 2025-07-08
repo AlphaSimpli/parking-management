@@ -1,0 +1,41 @@
+<h1>Reserve a parking space</h1>
+
+<form method="GET" id="slotForm">
+    <label>Choose a City :</label>
+    <select name="city_id" onchange="loadParkings(this.value)">
+        {% for city in cities %}
+            <option value="{{ city.city_id }}">{{ city.name }}</option>
+        {% endfor %}
+    </select>
+
+    <label>Choose a parking :</label>
+    <select name="lot_id" id="parkingSelect">
+        <!-- Dynamically filled by JS -->
+        <script>
+document.getElementById("slotForm").addEventListener("submit", function(e) {
+    e.preventDefault();  // empêche l'envoi normal
+    const lotId = document.getElementById("parkingSelect").value;
+    window.location.href = `/get-slots/${lotId}`;  // redirige avec bon format
+});
+</script>
+    </select>
+
+    <button type="submit">see available slots</button>
+</form>
+
+<script>
+function loadParkings(cityId) {
+    fetch('/get-parking/' + cityId)
+        .then(response => response.json())
+        .then(data => {
+            const select = document.getElementById("parkingSelect");
+            select.innerHTML = "";
+            data.forEach(lot => {
+                const opt = document.createElement("option");
+                opt.value = lot.lot_id;
+                opt.textContent = lot.name;
+                select.appendChild(opt);
+            });
+        });
+}
+</script>
